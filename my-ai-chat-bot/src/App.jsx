@@ -1,18 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import ChatHeader from './components/ChatHeader'
+import React, { useState } from 'react';
+import './App.css';
+import ChatHeader from './components/ChatHeader';
+import ChatWindow from './components/ChatWindow';
+import ChatInput from './components/ChatInput';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [messages, setMessages] = useState([
+    { text: 'Hello!', sender: 'user' },
+    { text: 'Hi, how can I help you?', sender: 'bot' },
+  ]);
 
   return (
     <>
       <ChatHeader />
-      
+      <ChatWindow messages={messages} />
+      <ChatInput
+        onSendMessage={(newMessage) => {
+          setMessages((prev) => [...prev, { text: newMessage, sender: 'user' }]);
+        }}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
