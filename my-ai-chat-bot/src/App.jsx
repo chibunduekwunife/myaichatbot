@@ -4,22 +4,24 @@ import ChatHeader from './components/ChatHeader';
 import ChatWindow from './components/ChatWindow';
 import ChatInput from './components/ChatInput';
 
+
 function App() {
+
   const [messages, setMessages] = useState([
-    { text: 'Hello!', sender: 'user' },
-    { text: 'Hi, how can I help you?', sender: 'bot' },
-  ]);
+    { text: 'Hello!', sender: 'user: ' },
+    { text: 'Hi, how can I help you?', sender: 'HeartAI: ' },
+]);
 
   return (
-    <>
+    <div className="chatPage chatContainerWrapper">
       <ChatHeader />
       <ChatWindow messages={messages} />
       <ChatInput
-        onSendMessage={(newMessage) => {
+          onSendMessage={(newMessage) => {
           setMessages((prev) => [...prev, { text: newMessage, sender: 'user' }]);
-        }}
+          }}
       />
-    </>
+    </div>
   );
 }
 

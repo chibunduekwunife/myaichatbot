@@ -1,5 +1,5 @@
 import React from 'react'
-import style from '../styles/ChatMessage.module.css'
+import styles from '../styles/ChatMessage.module.css'
 
 //Purpose: Represents an individual message in the chat.
 //Display a single message with styling to differentiate between user and bot messages.
@@ -7,8 +7,14 @@ import style from '../styles/ChatMessage.module.css'
 const ChatMessage = ({ message = { text: '', sender: ''}}) => {
 
     return (
-        <div className={`${style.chatMessage} ${message.sender}`}>
-            <p>{ message.text }</p>
+        <div className={styles.chatContainer}>
+            <div className={`${styles.chatMessage} ${message.sender === 'HeartAI: ' ? styles.botMessage : styles.senderMessage}`} >
+                <p>
+                    <strong>{ message.sender }</strong>
+                    &nbsp;
+                    { message.text }
+                </p>
+            </div>
         </div>
     )
 }

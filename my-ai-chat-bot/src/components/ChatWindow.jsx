@@ -9,7 +9,7 @@ import ChatMessage from './ChatMessage'
 const ChatWindow = ({ messages = [] }) => {
 
     return (
-        <div className={styles.chatWindow}>
+        <div className={`${styles.chatWindow} ${styles.chatContainerWrapper}`}>
             {messages.map((msg, index) => (
                 <ChatMessage key={index} message={msg} />
             ))}

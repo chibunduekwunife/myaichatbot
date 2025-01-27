@@ -18,16 +18,21 @@ const ChatInput = ({ onSendMessage }) => {
         }
     }
 
-
     return (
-        <div className={styles.chatInput}>
+        <div className={styles.chatFooter}>
             <input
+                className={styles.Input}
                 type='text'
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="ask me anything!..."
             />
-            <button onClick={handleSend}>Send Message</button>
+            <button 
+                onClick={handleSend}
+                className={styles.sendButton}
+                >
+                    Send Message
+            </button>
         </div>
     )
 }
